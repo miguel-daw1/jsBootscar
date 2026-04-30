@@ -28,17 +28,9 @@ const producto=[
 ]
 let carrito=[]
 
-const cargar=()=>{
-    fetch("productos.php") //a donde vamos a solicitar datos
-    .then(response => response.json())
-    .then(producto=>{
-        //tenemos los datos y vamos a hacer algo con ellos
-        render(producto)
-        eventos(producto)
-    })
-}
+
 const menu = document.getElementById("menu")
-const render=(producto)=>{
+
 producto.forEach(producto => {
     menu.innerHTML+=`
     <div class="col col-12 col-md-4 col-lg-3">
@@ -57,8 +49,8 @@ producto.forEach(producto => {
     </div>
     `
 });
-}
-const eventos=(producto)=>{
+
+
 const botones = document.querySelectorAll(".agregar-btn")
 botones.forEach((btn,index)=>{
     btn.addEventListener("click",()=>{
@@ -75,5 +67,4 @@ botones.forEach((btn,index)=>{
         
     })
 })
-}
-cargar()
+
